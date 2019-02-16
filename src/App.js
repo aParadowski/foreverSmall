@@ -1,28 +1,56 @@
 import React, { Component } from 'react';
+import { withStyles, Card, AppBar, Toolbar, Typography, Button, IconButton } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
 import logo from './logo.svg';
 import './App.css';
 
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
+  loginButton: {
+    marginLeft: 'auto'
+  }
+};
+
+
 class App extends Component {
-  render() {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {  
+    const { classes } = this.props;
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Welcome to Forever Small. Get them gainz.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <>
+      <div className={classes.root}>
+
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" color="inherit">
+              Welcome to Forever Small. Get them gainz.
+            </Typography>
+            <Button color="inherit" className={classes.loginButton}>Login</Button>
+          </Toolbar>
+        </AppBar>
       </div>
+      <Card>
+        <img src={logo} className="App-logo" alt="logo" />
+      </Card>
+      </>
     );
   }
 }
 
-export default App;
+export default withStyles(styles)(App);
