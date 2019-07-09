@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { withStyles, Card, AppBar, Toolbar, Typography, Button, IconButton } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import logo from './logo.svg';
+import Logo from './logo.svg';
 import './App.css';
 
 const styles = {
   root: {
     flexGrow: 1,
+    height: '100%',
   },
   grow: {
     flexGrow: 1,
@@ -32,7 +33,6 @@ class App extends Component {
     return (
       <>
       <div className={classes.root}>
-
         <AppBar position="static">
           <Toolbar>
             <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
@@ -46,7 +46,7 @@ class App extends Component {
         </AppBar>
       </div>
       <Card>
-        <img src={logo} className="App-logo" alt="logo" />
+        <Logo />
       </Card>
       </>
     );
